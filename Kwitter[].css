@@ -9,22 +9,32 @@ font-size: 'Cedarville Cursive';
 }
 
 .header{
-	color: white;font-family: 'Splash';font-size: 45px;letter-spacing: 10px;margin-top: 80px;
+	color: white;
+	font-family: 'Splash';
+	font-size: 45px;
+	letter-spacing: 10px;
+	margin-top: 80px;
 }
 .header img{
-	width: 80px;margin-left: -15px;
+	width: 80px;
+	margin-left: -15px;
 }
 
 .login_div{
-	background: rgba(225, 255, 0, 0.115);float: none;border-radius: 15px;
+	background: rgba(225, 255, 0, 0.115);
+	float: none;
+	border-radius: 15px;
 }
 
 .logo{
-	width: 80px;margin-top: 30px;border-radius: 40px;
+	width: 80px;
+	margin-top: 30px;
+	border-radius: 400px;
 }
 
 #login_button{
-	width: 80%;border-radius: 15px;
+	width: 80%;
+	border-radius: 15px;
 }
 
 .room_name{
@@ -34,12 +44,15 @@ font-size: 'Cedarville Cursive';
 
 
 #logout{
-	font-size: 20px; float: right;
+	font-size: 20px;
+	 float: right;
 }
 
 
 #output{
-	padding: 10px; width:80%;background: rgba(255,255,255,0.8);border-radius: 15px;
+	padding: 10px;
+	 width:80%;
+	 background: rgba(255,255,255,0.8);border-radius: 15px;
 }
 
 .input_div_room_page{
@@ -47,15 +60,19 @@ font-size: 'Cedarville Cursive';
 }
 
 .input_div label{
-	color: white;font-size: 20px;
+	color: white;
+	font-size: 20px;
 }
 
 
 .input_div_message_page{
-	position: fixed;bottom: 0px;width: 100%;background: rgba(255,255,255,0.8);
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	background: rgba(255,255,255,0.8);
 }
 .input_div_message_page label{
-	color: black;
+	color: rgb(59, 0, 0);
 }
 .input_div_message_page #msg{
 	width: 80%;
@@ -65,12 +82,13 @@ font-size: 'Cedarville Cursive';
 	width: 50%; 
 }
 .color_white{
-	color: white
+	color: rgb(255, 212, 212)
 }
 
 .user_tick{
 	width:20px;
 }
 .message_h4{
-	padding-left:5px;color:grey;
+	padding-left:5px;
+	color:rgb(134, 94, 94);
 }
