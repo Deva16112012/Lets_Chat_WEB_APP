@@ -10,4 +10,4 @@ var firebaseConfig = {
   };
   
   // Initialize Firebase
-  firebaseapp = initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
