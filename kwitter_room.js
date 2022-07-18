@@ -15,6 +15,11 @@ firebase.initializeApp(firebaseConfig);
   function b(){
     y=localStorage.getItem("Username");
     document.getElementById("a").innerHTML="Welcome  "+y+"!"; 
+    firebase.database().ref("/").child(x).update({
+      purpse:"I have added the room name"
+    })
+    localStorage.setItem("roomname",x);
+    window.location="kwitter_page.html";
   }
   function A(){
     function getData() {
