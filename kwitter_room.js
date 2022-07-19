@@ -5,41 +5,42 @@ var firebaseConfig = {
   projectId: "kwitter-web-app-afd1d",
   storageBucket: "kwitter-web-app-afd1d.appspot.com",
   messagingSenderId: "788426937665",
-  appId: "1:788426937665:web:3a68ae510488d2209dbdc0",
-  measurementId: "G-FFP69X92SL"
+  appId: "1:788426937665:web:e82e39a00edb0bb59dbdc0",
+  measurementId: "G-62FT31M297"
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-  function b(){
-    y=localStorage.getItem("Username");
-    document.getElementById("a").innerHTML="Welcome  "+y+"!"; 
-    firebase.database().ref("/").child(x).update({
-      purpse:"I have added the room name"
-    })
-    localStorage.setItem("roomname",x);
-    window.location="kwitter_page.html";
-  }
-  function A(){
-    function getData() {
-      firebase.database().ref("/").on('value',function(snapshot) {
-        document.getElementById("output").innerHTML ="";
-        snapshot.forEach(function(childSnapshot) {
-          childKey = childSnapshot.key;
-          Room_names = childKey;
-          //Start code
-          console.log("Room name is"+Room_names);
-          row = "<div class='room_name' id="+Room_names+" onclick='redirectToRoomName(this.id)' >#"+ Room_names +"</div><hr>";
-          document.getElementById("output").innerHTML=row;
-          //End code
-         });
+function b(){
+  y=localStorage.getItem("Username");
+  document.getElementById("a").innerHTML="Welcome  "+y+"!"; 
+
+  x=document.getElementById("roomname").value;
+  firebase.database().ref("/").child(x).update({
+    purpse:"I have added the room name"
+  });
+  localStorage.setItem("room-name",x);
+  window.location="kwitter_page.html";
+}
+function A(){
+  function getData() {
+    firebase.database().ref("/").on('value', function(snapshot) {
+      document.getElementById("output").innerHTML = "";snapshot.forEach(function(childSnapshot) {
+       childKey  = childSnapshot.key;
+       Room_names = childKey;
+       //Start code
+       console.log("Room name is"+Room_names);
+       row = "<div class='room_name' id="+Room_names+" onclick='redirectToRoomName(this.id)' >#"+ Room_names +"</div><hr>";
+       document.getElementById("output").innerHTML+=row;
+       //End code
       });
-   }
-getData();
+    });
   }
-  function redirectToRoomName(y){
-    console.log(y);
-    localStorage.setItem("roommname",y);
-    window.location="kwitter_page.html";
-  }
+  getData();
+}
+function redirectToRoomName(y){
+console.log(y);
+localStorage.setItem("room-name",y);
+window.location="kwitter_page.html";
+}
