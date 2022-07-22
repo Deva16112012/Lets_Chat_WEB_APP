@@ -15,32 +15,35 @@ firebase.initializeApp(firebaseConfig);
 function b(){
   y=localStorage.getItem("Username");
   document.getElementById("a").innerHTML="Welcome  "+y+"!"; 
-
   x=document.getElementById("roomname").value;
   firebase.database().ref("/").child(x).update({
     purpse:"I have added the room name"
   });
-  localStorage.setItem("room-name",x);
-  window.location="kwitter_page.html";
 }
 function A(){
+  localStorage.setItem("lroomname",x);
+  window.location="kwitter_page.html";
   function getData() {
     firebase.database().ref("/").on('value', function(snapshot) {
       document.getElementById("output").innerHTML = "";snapshot.forEach(function(childSnapshot) {
-       childKey  = childSnapshot.key;
-       Room_names = childKey;
-       //Start code
-       console.log("Room name is"+Room_names);
-       row = "<div class='room_name' id="+Room_names+" onclick='redirectToRoomName(this.id)' >#"+ Room_names +"</div><hr>";
-       document.getElementById("output").innerHTML+=row;
-       //End code
+        childKey  = childSnapshot.key;
+        Room_names = childKey;
+        //Start code
+        console.log("Room name is"+Room_names);
+        row = "<div class='room_name' id="+Room_names+" onclick='redirectToRoomName(this.id)' >#"+ Room_names +"</div><hr>";
+        document.getElementById("output").innerHTML+=row;
+        //End code
       });
     });
   }
-  getData();
+}
+getData();
+function LO(){
+  window.location="index.html";
+  localStorage.removeItem("Username");
+  localStorage.removeItem("lroomname");
 }
 function redirectToRoomName(y){
-console.log(y);
-localStorage.setItem("room-name",y);
-window.location="kwitter_page.html";
+  console.log(y);
+  localStorage.setItem("lroommname",y);
 }
