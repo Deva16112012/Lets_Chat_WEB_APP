@@ -10,40 +10,41 @@ var firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
 
-function b(){
-  y=localStorage.getItem("Username");
-  document.getElementById("a").innerHTML="Welcome  "+y+"!"; 
-  x=document.getElementById("roomname").value;
-  firebase.database().ref("/").child(x).update({
-    purpse:"I have added the room name"
+firebase.initializeApp(firebaseConfig);
+user_name = localStorage.getItem("user_name");
+
+document.getElementById("user_name").innerHTML = "Welcome " + user_name + "!";
+
+function addRoom(){
+  room_name = document.getElementById("room_name").value;
+  firebase.database().ref("/").child(room_name).update({
+    purpose : "adding room name"
   });
+    localStorage.setItem("room_name", room_name);
+    window.location = "kwitter_page.html";
 }
-function A(){
-  localStorage.setItem("lroomname",x);
-  window.location="kwitter_page.html";
-  function getData() {
-    firebase.database().ref("/").on('value', function(snapshot) {
-      document.getElementById("output").innerHTML = "";snapshot.forEach(function(childSnapshot) {
-        childKey  = childSnapshot.key;
-        Room_names = childKey;
-        //Start code
-        console.log("Room name is"+Room_names);
-        row = "<div class='room_name' id="+Room_names+" onclick='redirectToRoomName(this.id)' >#"+ Room_names +"</div><hr>";
-        document.getElementById("output").innerHTML+=row;
-        //End code
-      });
+
+function getData() {  firebase.database().ref("/").on('value', function(snapshot) { document.getElementById("output").innerHTML = ""; snapshot.forEach(function(childSnapshot) { childKey  = childSnapshot.key;
+       Room_names = childKey;
+       console.log("Room Name - " + Room_names);
+      row = "<div class='room_name' id="+Room_names+" onclick='redirectToRoomName(this.id)' >#"+ Room_names +"</div><hr>";
+      document.getElementById("output").innerHTML += row;
     });
-  }
+  });
+
 }
+
 getData();
-function LO(){
-  window.location="index.html";
-  localStorage.removeItem("Username");
-  localStorage.removeItem("lroomname");
+
+function redirectToRoomName(name){
+  console.log(name);
+  localStorage.setItem("room_name", name);
+  window.location = "kwitter_page.html";
 }
-function redirectToRoomName(y){
-  console.log(y);
-  localStorage.setItem("lroommname",y);
+
+function logout() {
+localStorage.removeItem("user_name");
+localStorage.removeItem("room_name");
+    window.location = "kwitter.html";
 }
